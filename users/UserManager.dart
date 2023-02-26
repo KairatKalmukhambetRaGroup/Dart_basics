@@ -2,24 +2,24 @@ import 'AdminUser.dart';
 import 'User.dart';
 
 class UserManager<T extends User> {
-  List<T> users = [];
+  List<T> _users = [];
 
   void add(T user) {
-    users.add(user);
+    this._users.add(user);
   }
 
   T get(int index) {
-    if (index >= 0 && index < users.length) return users[index];
-    throw RangeError.index(index, users.length);
+    if (index >= 0 && index < this._users.length) return this._users[index];
+    throw RangeError.index(index, this._users.length);
   }
 
   T remove(int index) {
-    return users.removeAt(index);
+    return this._users.removeAt(index);
   }
 
   void printAll() {
     List<String> list = [];
-    for (T user in users) {
+    for (T user in this._users) {
       if (user is AdminUser)
         list.add(user.getMailSystem());
       else

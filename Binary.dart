@@ -1,9 +1,9 @@
 class Binary {
-  String value;
-  Binary(this.value);
+  String _value;
+  Binary(this._value);
 
   @override
   String toString() {
-    return value;
+    return _value;
   }
 }

@@ -2,20 +2,43 @@ import 'dart:ffi';
 import 'dart:math';
 
 class Point {
-  double x, y, z;
-  Point(this.x, this.y, this.z);
+  double _x, _y, _z;
+  Point(this._x, this._y, this._z);
   factory Point.zero() {
     return Point(0, 0, 0);
   }
   factory Point.unitVector() {
     return Point(1, 1, 1);
   }
+  double getX() {
+    return this._x;
+  }
+
+  void setX(double x) {
+    this._x = x;
+  }
+
+  double getY() {
+    return this._y;
+  }
+
+  void setY(double y) {
+    this._y = y;
+  }
+
+  double getZ() {
+    return this._z;
+  }
+
+  void setZ(double z) {
+    this._z = z;
+  }
 
   double distanceTo(Point o) {
     double distance = 0;
-    num xSquare = pow(this.x - o.x, 2);
-    num ySquare = pow(this.y - o.y, 2);
-    num zSquare = pow(this.z - o.z, 2);
+    num xSquare = pow(this._x - o.getX(), 2);
+    num ySquare = pow(this._y - o.getY(), 2);
+    num zSquare = pow(this._z - o.getZ(), 2);
     distance = sqrt(xSquare + ySquare + zSquare);
     return distance;
   }
